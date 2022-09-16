@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <h4>Add new Employee</h4>&nbsp;
+    <!--showerrormsg-->
+    <div *ngIf="errormsg" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{errormsg}}</strong> All fields are required!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <!--showerrormsg-->
+
+     <!--showerrormsg-->
+     <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong> Success! 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <!--showerrormsg-->
+
+    <form [formGroup]="empForm">
+        <div class="col-lg-4 mt-2">
+        <input type="text"  class="form-control" formControlName="name" placeholder="Enter Employee Name">
+        </div>
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control"formControlName="city"  placeholder="Enter Employee City">
+            </div>
+            <div class="col-lg-4 mt-2">
+                <input type="text" class="form-control" formControlName="salary"  placeholder="Enter Employee Salary">
+                </div>
+                <div class="col-lg-4 mt-2">
+                    <input type="text" class="form-control" formControlName="company"  placeholder="Enter Employee Company">
+                    </div>
+                    <div class="col-lg-4 mt-2">
+                        <input type="text" class="form-control" formControlName="gender"  placeholder="Enter Employee Gender">
+                        </div>
+
+                        <div class="col-lg-4 mt-2" *ngIf="!getparamid" (click)="empSubmit()"> 
+                            <button class="btn btn-primary btn-sm">Sumbit</button>      
+                        </div>
+                        <div class="col-lg-4 mt-2" *ngIf="getparamid" (click)="empUpdate()">
+                            <button class="btn btn-dark btn-sm">Update</button>      
+                        </div>
+                      
+    </form> 
+
+</div>
